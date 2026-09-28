@@ -10,6 +10,7 @@ from validations import (
     validate_number,
     validate_price,
     validate_status,
+    validate_text,
 )
 
 
@@ -31,6 +32,9 @@ def add_piece(piece_id, name, category, price, status, description):
     validate_not_empty(piece_id, "identificador")
     validate_not_empty(name, "nombre")
     validate_not_empty(category, "categoría")
+    validate_text(piece_id, "identificador")
+    validate_text(name, "nombre")
+    validate_text(category, "categoría")
     validate_not_empty(price, "precio")
     validate_not_empty(status, "estado")
     validate_not_empty(description, "descripción")
@@ -41,7 +45,7 @@ def add_piece(piece_id, name, category, price, status, description):
     return {
         "id": piece_id,
         "name": name,
-        "category": category,
+        "category": category.capitalize(),  # "cartas" and "Cartas" are the same category
         "price": float(price),
         "status": status,
         "description": description,

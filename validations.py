@@ -18,6 +18,12 @@ def validate_not_empty(value, field_name):
         raise ValueError(f"El campo '{field_name}' no puede estar vacío.")
 
 
+def validate_text(value, field_name):
+    """Raise ValueError if the value is not a string."""
+    if not isinstance(value, str):
+        raise ValueError(f"El campo '{field_name}' debe ser un texto.")
+
+
 def validate_number(value, field_name):
     """Raise ValueError if the value is not a finite int or float."""
     # bool is a subclass of int, so it has to be rejected explicitly.
