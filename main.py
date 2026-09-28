@@ -27,3 +27,11 @@ MENU = """
 6. Eliminar una pieza
 7. Salir"""
 # [SKILL 1 END]
+
+
+def read_text(prompt):
+    """Ask the user for a text and return it without surrounding whitespace."""
+    # [SKILL 2 START] Capturing information from the terminal (input)
+    # [SKILL 5 START/END] String manipulation (strip)
+    return input(prompt).strip()
+    # [SKILL 2 END]
