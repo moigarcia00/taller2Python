@@ -85,3 +85,16 @@ def remove_piece(catalog, piece_id):
     except LookupError:
         return False
     return True
+
+
+def get_catalog_summary(catalog):
+    """Return a dictionary with the number of pieces per category.
+
+    Raises TypeError if the catalog is not a list.
+    """
+    validate_catalog(catalog)
+    summary = {}
+    for piece in catalog:
+        category = piece["category"]
+        summary[category] = summary.get(category, 0) + 1
+    return summary
