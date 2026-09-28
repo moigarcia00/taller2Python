@@ -109,3 +109,8 @@ def get_pieces_by_category(catalog, category):
     validate_catalog(catalog)
     wanted = str(category).strip().casefold()
     return [piece["name"] for piece in catalog if piece["category"].casefold() == wanted]
+
+
+def piece_exists(catalog, piece_id):
+    """Return True if a piece with the given id is in the catalog, else False."""
+    return find_piece_by_id(catalog, piece_id) is not None
