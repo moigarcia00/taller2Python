@@ -114,3 +114,14 @@ def get_pieces_by_category(catalog, category):
 def piece_exists(catalog, piece_id):
     """Return True if a piece with the given id is in the catalog, else False."""
     return find_piece_by_id(catalog, piece_id) is not None
+
+
+def filter_by_status(catalog, status):
+    """Return the pieces that have the given status.
+
+    Raises ValueError if the status is not allowed and TypeError if the
+    catalog is not a list.
+    """
+    validate_catalog(catalog)
+    validate_status(status)
+    return [piece for piece in catalog if piece["status"] == status]
