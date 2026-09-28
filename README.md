@@ -113,6 +113,27 @@ Seleccione una opción: 7
 ¡Hasta pronto!
 ```
 
+## Mapa de fundamentos aplicados
+
+En el código hay comentarios `# [SKILL n START]` ... `# [SKILL n END]` que marcan dónde empieza y termina cada fundamento. Si el bloque es de una sola línea aparece como `# [SKILL n START/END]`. Los números siguen esta lista y algunos bloques están anidados dentro de otros.
+
+| # | Fundamento | Dónde verlo |
+|---|---|---|
+| 1 | Declarar variables y tipos de datos básicos | Constantes de `validations.py` y `main.py`; `catalog = []` en `main()` |
+| 2 | Capturar información por terminal | `read_text` y `handle_add_piece` (`main.py`) |
+| 3 | Convertir texto a números | `read_price` (`main.py`) y `float(price)` en `add_piece` |
+| 4 | Consultar el tipo de dato | `isinstance` en `validate_not_empty`, `validate_text`, `validate_number` (`validations.py`) |
+| 5 | Manipular strings | `_clean_text`, `add_piece`, `get_pieces_by_category`, `validate_description`, `format_piece`, `read_text` |
+| 6 | Trabajar con objetos | Diccionario de `add_piece`, contador en `get_catalog_summary`, `MENU_ACTIONS` |
+| 7 | Operadores aritméticos, de comparación y lógicos | `get_average_price`, `filter_by_min_price`, `validate_price`, `validate_number` |
+| 8 | Condicionales | `find_piece_by_id`, `validate_status`, `run_menu` y los `handle_*` |
+| 9 | Bucles | `for` en `find_piece_by_id` y `get_catalog_summary`; `while True` en `run_menu` |
+| 10 | Funciones (separar, encapsular, reutilizar) | Todo el proyecto; ver `piece_exists` y `remove_piece`, que reutilizan `find_piece_by_id` |
+| 11 | Validaciones tempranas | Bloque de `add_piece`, primera línea de cada función de `catalog.py`, id duplicado en `handle_add_piece` |
+| 12 | Manejo y captura de errores | `remove_piece`, `get_average_price`, `read_price` y `run_menu` |
+| 13 | Usar Git para registrar avances | Historial de commits: `git log --oneline` (un commit por cada avance) |
+| 14 | Publicar y documentar en GitHub | Este `README.md` y el repositorio publicado |
+
 ## Tecnologías utilizadas
 
 - Python 3 (solo biblioteca estándar: `math`, `re`)
