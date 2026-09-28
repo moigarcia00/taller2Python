@@ -68,3 +68,20 @@ def find_piece_by_id(catalog, piece_id):
         if piece["id"] == piece_id:
             return piece
     return None
+
+
+def remove_piece(catalog, piece_id):
+    """Remove the piece with the given id from the catalog (in place).
+
+    Return True if it was removed and False if it was not found.
+    Raises TypeError if the catalog is not a list.
+    """
+    validate_catalog(catalog)
+    try:
+        piece = find_piece_by_id(catalog, piece_id)
+        if piece is None:
+            raise LookupError(f"No se encontró ninguna pieza con el id '{piece_id}'.")
+        catalog.remove(piece)
+    except LookupError:
+        return False
+    return True
