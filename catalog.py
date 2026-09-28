@@ -98,3 +98,14 @@ def get_catalog_summary(catalog):
         category = piece["category"]
         summary[category] = summary.get(category, 0) + 1
     return summary
+
+
+def get_pieces_by_category(catalog, category):
+    """Return the names of the pieces in a category (case-insensitive).
+
+    Return an empty list when nothing matches.
+    Raises TypeError if the catalog is not a list.
+    """
+    validate_catalog(catalog)
+    wanted = str(category).strip().casefold()
+    return [piece["name"] for piece in catalog if piece["category"].casefold() == wanted]
