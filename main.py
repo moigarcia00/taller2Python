@@ -35,3 +35,20 @@ def read_text(prompt):
     # [SKILL 5 START/END] String manipulation (strip)
     return input(prompt).strip()
     # [SKILL 2 END]
+
+
+def read_price(prompt):
+    """Ask the user for a price and return it as a float.
+
+    Raises ValueError if the text cannot be converted to a number.
+    """
+    # [SKILL 2 START/END] Capturing information from the terminal (via read_text)
+    # [SKILL 5 START/END] String manipulation (replace: "450,50" -> "450.50")
+    raw_price = read_text(prompt).replace(",", ".")
+    # [SKILL 12 START] Error handling: try / except + raise
+    try:
+        # [SKILL 3 START/END] Converting text to a number
+        return float(raw_price)
+    except ValueError:
+        raise ValueError("El precio debe ser un número, por ejemplo 450.50.") from None
+    # [SKILL 12 END]
