@@ -46,3 +46,12 @@ def add_piece(piece_id, name, category, price, status, description):
         "status": status,
         "description": description,
     }
+
+
+def list_pieces(catalog):
+    """Return the names of all pieces in the catalog.
+
+    Raises TypeError if the catalog is not a list.
+    """
+    validate_catalog(catalog)
+    return [piece["name"] for piece in catalog]
