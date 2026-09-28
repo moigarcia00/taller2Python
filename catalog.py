@@ -55,3 +55,16 @@ def list_pieces(catalog):
     """
     validate_catalog(catalog)
     return [piece["name"] for piece in catalog]
+
+
+def find_piece_by_id(catalog, piece_id):
+    """Return the piece with the given id, or None if there is no match.
+
+    Not finding a piece is a valid result, so no exception is raised for it.
+    Raises TypeError if the catalog is not a list.
+    """
+    validate_catalog(catalog)
+    for piece in catalog:
+        if piece["id"] == piece_id:
+            return piece
+    return None
