@@ -136,3 +136,16 @@ def filter_by_min_price(catalog, min_price):
     validate_catalog(catalog)
     validate_number(min_price, "precio mínimo")
     return [piece for piece in catalog if piece["price"] > min_price]
+
+
+def get_average_price(catalog):
+    """Return the average price of all pieces, or 0 if the catalog is empty.
+
+    Raises TypeError if the catalog is not a list.
+    """
+    validate_catalog(catalog)
+    try:
+        validate_not_empty(catalog, "catálogo")
+    except ValueError:
+        return 0
+    return sum(piece["price"] for piece in catalog) / len(catalog)
