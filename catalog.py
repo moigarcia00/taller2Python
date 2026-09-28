@@ -125,3 +125,14 @@ def filter_by_status(catalog, status):
     validate_catalog(catalog)
     validate_status(status)
     return [piece for piece in catalog if piece["status"] == status]
+
+
+def filter_by_min_price(catalog, min_price):
+    """Return the pieces whose price is strictly greater than min_price.
+
+    Raises ValueError if min_price is not numeric and TypeError if the
+    catalog is not a list.
+    """
+    validate_catalog(catalog)
+    validate_number(min_price, "precio mínimo")
+    return [piece for piece in catalog if piece["price"] > min_price]
